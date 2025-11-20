@@ -6,153 +6,217 @@
   <title>WX워크숍 50차수(광양) 리더님 17명 사진 갤러리</title>
 
   <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 20px;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    h1 {
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        system-ui, sans-serif;
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px 60px;
+      background: #f5f6fb;
+      color: #222;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 30px;
+      font-weight: 800;
+      background: linear-gradient(90deg, #4f6df5, #7fa2ff);
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
       text-align: center;
       margin-bottom: 40px;
-      font-size: 30px;
-      font-weight: 700;
+      font-size: 15px;
+      color: #555;
+      letter-spacing: -0.2px;
     }
 
     /* ===== Grid Layout ===== */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 30px;
+      gap: 24px;
     }
 
     /* ===== Card Design ===== */
     .item {
       text-align: center;
-      border-radius: 12px;
-      padding: 15px;
+      border-radius: 14px;
+      padding: 14px 14px 18px;
       background: #fff;
-      border: 1px solid #eee;
+      border: 1px solid #e7e7f0;
       box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
-      .title {
-    text-align: center;
-    margin-bottom: 10px;
-    font-size: 32px;
-    font-weight: 800;
-    background: linear-gradient(90deg, #4f6df5, #7fa2ff);
-    -webkit-background-clip: text;
-    color: transparent;
-    letter-spacing: -0.5px;
-  }
-
-  .subtitle {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 16px;
-    color: #555;
-    letter-spacing: -0.2px;
-  }
     }
-</style>
 
-<h1 class="title">WX워크숍 광양(50차수) 17명 리더님</h1>
-<p class="subtitle">아래 다운로드 버튼을 누르시면 사진을 저장하실 수 있습니다.</p>
+    .thumb {
+      width: 100%;
+      aspect-ratio: 3 / 4; /* 비율 고정 (원하는 비율로 바꿔도 됨) */
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 12px;
+      background: #f0f0f5;
+    }
 
-<div class="grid">
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* 이미지 비율 맞추면서 꽉 채우기 */
+      display: block;
+    }
 
-  <!-- ===== Image 1~16 반복 ===== -->
-  <div class="item">
-    <div class="thumb"><img src="image0.png" /></div>
-    <a class="download-btn" href="image0.png" download="image0.png">다운로드</a>
+    .download-btn {
+      display: inline-block;
+      padding: 8px 18px;
+      font-size: 14px;
+      border-radius: 999px;
+      border: none;
+      text-decoration: none;
+      background: linear-gradient(135deg, #4f6df5, #7fa2ff);
+      color: #fff;
+      font-weight: 600;
+      box-shadow: 0 4px 10px rgba(79, 109, 245, 0.35);
+      transition: transform 0.12s ease, box-shadow 0.12s ease,
+        filter 0.12s ease;
+    }
+
+    .download-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(79, 109, 245, 0.45);
+      filter: brightness(1.03);
+    }
+
+    .download-btn:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 6px rgba(79, 109, 245, 0.35);
+      filter: brightness(0.97);
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="title">WX워크숍 광양(50차수) 리더님 17분 사진</h1>
+  <p class="subtitle">
+    아래 <strong>다운로드</strong> 버튼을 누르시면 각 사진을 저장하실 수 있습니다.
+  </p>
+
+  <div class="grid">
+    <!-- 0 -->
+    <div class="item">
+      <div class="thumb"><img src="image0.png" alt="리더님 사진 0" /></div>
+      <a class="download-btn" href="image0.png" download="WX_50th_0.png">다운로드</a>
+    </div>
+
+    <!-- 1 -->
+    <div class="item">
+      <div class="thumb"><img src="image1.png" alt="리더님 사진 1" /></div>
+      <a class="download-btn" href="image1.png" download="WX_50th_1.png">다운로드</a>
+    </div>
+
+    <!-- 2 -->
+    <div class="item">
+      <div class="thumb"><img src="image2.png" alt="리더님 사진 2" /></div>
+      <a class="download-btn" href="image2.png" download="WX_50th_2.png">다운로드</a>
+    </div>
+
+    <!-- 3 -->
+    <div class="item">
+      <div class="thumb"><img src="image3.png" alt="리더님 사진 3" /></div>
+      <a class="download-btn" href="image3.png" download="WX_50th_3.png">다운로드</a>
+    </div>
+
+    <!-- 4 -->
+    <div class="item">
+      <div class="thumb"><img src="image4.png" alt="리더님 사진 4" /></div>
+      <a class="download-btn" href="image4.png" download="WX_50th_4.png">다운로드</a>
+    </div>
+
+    <!-- 5 -->
+    <div class="item">
+      <div class="thumb"><img src="image5.png" alt="리더님 사진 5" /></div>
+      <a class="download-btn" href="image5.png" download="WX_50th_5.png">다운로드</a>
+    </div>
+
+    <!-- 6 -->
+    <div class="item">
+      <div class="thumb"><img src="image6.png" alt="리더님 사진 6" /></div>
+      <a class="download-btn" href="image6.png" download="WX_50th_6.png">다운로드</a>
+    </div>
+
+    <!-- 7 -->
+    <div class="item">
+      <div class="thumb"><img src="image7.png" alt="리더님 사진 7" /></div>
+      <a class="download-btn" href="image7.png" download="WX_50th_7.png">다운로드</a>
+    </div>
+
+    <!-- 8 -->
+    <div class="item">
+      <div class="thumb"><img src="image8.png" alt="리더님 사진 8" /></div>
+      <a class="download-btn" href="image8.png" download="WX_50th_8.png">다운로드</a>
+    </div>
+
+    <!-- 9 -->
+    <div class="item">
+      <div class="thumb"><img src="image9.png" alt="리더님 사진 9" /></div>
+      <a class="download-btn" href="image9.png" download="WX_50th_9.png">다운로드</a>
+    </div>
+
+    <!-- 10 -->
+    <div class="item">
+      <div class="thumb"><img src="image10.png" alt="리더님 사진 10" /></div>
+      <a class="download-btn" href="image10.png" download="WX_50th_10.png">다운로드</a>
+    </div>
+
+    <!-- 11 -->
+    <div class="item">
+      <div class="thumb"><img src="image11.png" alt="리더님 사진 11" /></div>
+      <a class="download-btn" href="image11.png" download="WX_50th_11.png">다운로드</a>
+    </div>
+
+    <!-- 12 -->
+    <div class="item">
+      <div class="thumb"><img src="image12.png" alt="리더님 사진 12" /></div>
+      <a class="download-btn" href="image12.png" download="WX_50th_12.png">다운로드</a>
+    </div>
+
+    <!-- 13 -->
+    <div class="item">
+      <div class="thumb"><img src="image13.png" alt="리더님 사진 13" /></div>
+      <a class="download-btn" href="image13.png" download="WX_50th_13.png">다운로드</a>
+    </div>
+
+    <!-- 14 -->
+    <div class="item">
+      <div class="thumb"><img src="image14.png" alt="리더님 사진 14" /></div>
+      <a class="download-btn" href="image14.png" download="WX_50th_14.png">다운로드</a>
+    </div>
+
+    <!-- 15 -->
+    <div class="item">
+      <div class="thumb"><img src="image15.png" alt="리더님 사진 15" /></div>
+      <a class="download-btn" href="image15.png" download="WX_50th_15.png">다운로드</a>
+    </div>
+
+    <!-- 16 -->
+    <div class="item">
+      <div class="thumb"><img src="image16.png" alt="리더님 사진 16" /></div>
+      <a class="download-btn" href="image16.png" download="WX_50th_16.png">다운로드</a>
+    </div>
+
+    <!-- 17 -->
+    <div class="item">
+      <div class="thumb"><img src="image17.png" alt="리더님 사진 17" /></div>
+      <a class="download-btn" href="image17.png" download="WX_50th_17.png">다운로드</a>
+    </div>
   </div>
-  
-  <div class="item">
-    <div class="thumb"><img src="image1.png" /></div>
-    <a class="download-btn" href="image1.png" download="image1.png">다운로드</a>
-  </div>
-
-  <div class="item">
-    <div class="thumb"><img src="image2.png" /></div>
-    <a class="download-btn" href="image2.png" download="image2.png">다운로드</a>
-  </div>
-
-  <div class="item">
-    <div class="thumb"><img src="image3.png" /></div>
-    <a class="download-btn" href="image3.png" download="image3.png">다운로드</a>
-  </div>
-
-  <div class="item">
-    <div class="thumb"><img src="image4.png" /></div>
-    <a class="download-btn" href="image4.png" download="image4.png">다운로드</a>
-  </div>
-
-  <div class="item">
-    <div class="thumb"><img src="image5.png" /></div>
-    <a class="download-btn" href="image5.png" download="image5.png">다운로드</a>
-  </div>
-
-  <div class="item">
-    <div class="thumb"><img src="image6.png" /></div>
-    <a class="download-btn" href="image6.png" download="image6.png">다운로드</a>
-  </div>
-
-  <div class="item">
-    <div class="thumb"><img src="image7.png" /></div>
-    <a class="download-btn" href="image7.png" download="image7.png">다운로드</a>
-  </div>
-
-  <div class="item">
-    <div class="thumb"><img src="image8.png" /></div>
-    <a class="download-btn" href="image8.png" download="image8.png">다운로드</a>
-  </div>
-
-  <div class="item">
-    <div class="thumb"><img src="image9.png" /></div>
-    <a class="download-btn" href="image9.png" download="image9.png">다운로드</a>
-  </div>
-
-  <div class="item">
-    <div class="thumb"><img src="image10.png" /></div>
-    <a class="download-btn" href="image10.png" download="image10.png">다운로드</a>
-  </div>
-
-  <div class="item">
-    <div class="thumb"><img src="image11.png" /></div>
-    <a class="download-btn" href="image11.png" download="image11.png">다운로드</a>
-  </div>
-
-  <div class="item">
-    <div class="thumb"><img src="image12.png" /></div>
-    <a class="download-btn" href="image12.png" download="image12.png">다운로드</a>
-  </div>
-
-  <div class="item">
-    <div class="thumb"><img src="image13.png" /></div>
-    <a class="download-btn" href="image13.png" download="image13.png">다운로드</a>
-  </div>
-
-  <div class="item">
-    <div class="thumb"><img src="image14.png" /></div>
-    <a class="download-btn" href="image14.png" download="image14.png">다운로드</a>
-  </div>
-
-  <div class="item">
-    <div class="thumb"><img src="image15.png" /></div>
-    <a class="download-btn" href="image15.png" download="image15.png">다운로드</a>
-  </div>
-
-  <div class="item">
-    <div class="thumb"><img src="image16.png" /></div>
-    <a class="download-btn" href="image16.png" download="image16.png">다운로드</a>
-  </div>
-
-  <div class="item">
-    <div class="thumb"><img src="image17.png" /></div>
-    <a class="download-btn" href="image17.png" download="image17.png">다운로드</a>
-  </div>
-
-</div>
-
 </body>
 </html>
