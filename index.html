@@ -14,269 +14,565 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-        system-ui, sans-serif;
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 20px 60px;
-      background: #f5f6fb;
-      color: #222;
+        system-ui, "Noto Sans KR", sans-serif;
+      background:
+        radial-gradient(circle at top left, #f0f4ff 0, #f5f6fb 40%, #eef0ff 100%);
+      color: #111827;
     }
 
-    .title {
-      text-align: center;
-      margin-bottom: 10px;
-      font-size: 30px;
+    .wrapper {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 80px;
+    }
+
+    /* 상단 헤더 */
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       font-weight: 800;
-      background: linear-gradient(90deg, #4f6df5, #7fa2ff);
+      font-size: 18px;
+      letter-spacing: -0.04em;
+    }
+
+    .logo-badge {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #4f46e5, #6366f1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .nav {
+      display: flex;
+      gap: 18px;
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    .nav span {
+      cursor: default;
+    }
+
+    /* 히어로 섹션 */
+    .hero {
+      text-align: center;
+      padding: 40px 0 34px;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.06);
+      color: #2563eb;
+      font-size: 11px;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .hero-title {
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+      background: linear-gradient(110deg, #111827, #3843d0, #f97316);
       -webkit-background-clip: text;
       color: transparent;
-      letter-spacing: -0.5px;
     }
 
-    .subtitle {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 15px;
-      color: #555;
-      letter-spacing: -0.2px;
+    .hero-sub {
+      font-size: 14px;
+      color: #6b7280;
+      line-height: 1.6;
+      margin-bottom: 20px;
     }
 
-    /* ===== Grid Layout ===== */
+    .hero-sub strong {
+      color: #111827;
+      font-weight: 600;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      border: none;
+      background: #111827;
+      color: #f9fafb;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.35);
+      transition: transform 0.12s ease, box-shadow 0.12s ease,
+        filter 0.12s ease;
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.45);
+      filter: brightness(1.02);
+    }
+
+    .hero-cta:active {
+      transform: translateY(1px);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.35);
+      filter: brightness(0.97);
+    }
+
+    .hero-cta span.icon {
+      font-size: 16px;
+      transform: translateY(1px);
+    }
+
+    .hero-caption {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #9ca3af;
+    }
+
+    /* 갤러리 섹션 */
+    .section-title {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .section-desc {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 20px;
+    }
+
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 22px;
     }
 
-    /* ===== Card Design ===== */
     .item {
+      position: relative;
       text-align: center;
-      border-radius: 14px;
-      padding: 14px 14px 18px;
-      background: #fff;
-      border: 1px solid #e7e7f0;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+      border-radius: 20px;
+      padding: 10px 10px 16px;
+      background:
+        linear-gradient(145deg, rgba(59, 130, 246, 0.09), rgba(255, 255, 255, 0.8));
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+      overflow: hidden;
+      backdrop-filter: blur(4px);
+      transition: transform 0.16s ease, box-shadow 0.16s ease;
+    }
+
+    .item::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.45), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.18s ease;
+      pointer-events: none;
+    }
+
+    .item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.25);
+    }
+
+    .item:hover::before {
+      opacity: 1;
+    }
+
+    .tag {
+      position: absolute;
+      top: 10px;
+      left: 12px;
+      padding: 2px 9px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.78);
+      color: #e5e7eb;
+      font-size: 11px;
+      font-weight: 500;
+      z-index: 2;
     }
 
     .thumb {
       width: 100%;
-      aspect-ratio: 3 / 4; /* 비율 고정 (원하는 비율로 바꿔도 됨) */
-      border-radius: 10px;
+      aspect-ratio: 3 / 4;
+      border-radius: 16px;
       overflow: hidden;
-      margin-bottom: 12px;
-      background: #f0f0f5;
+      margin-bottom: 10px;
+      background: #0f172a;
     }
 
     .thumb img {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* 이미지 비율 맞추면서 꽉 채우기 */
+      object-fit: cover;
       display: block;
+      transform: scale(1.02);
+      transition: transform 0.2s ease;
+    }
+
+    .item:hover .thumb img {
+      transform: scale(1.06);
+    }
+
+    .name {
+      font-size: 13px;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 8px;
     }
 
     .download-btn {
       display: inline-block;
-      padding: 8px 18px;
-      font-size: 14px;
+      padding: 6px 16px;
+      font-size: 12px;
       border-radius: 999px;
       border: none;
       text-decoration: none;
-      background: linear-gradient(135deg, #4f6df5, #7fa2ff);
+      background: linear-gradient(135deg, #2563eb, #4f46e5);
       color: #fff;
       font-weight: 600;
-      box-shadow: 0 4px 10px rgba(79, 109, 245, 0.35);
+      box-shadow: 0 8px 18px rgba(37, 99, 235, 0.45);
       transition: transform 0.12s ease, box-shadow 0.12s ease,
         filter 0.12s ease;
     }
 
     .download-btn:hover {
       transform: translateY(-1px);
-      box-shadow: 0 6px 16px rgba(79, 109, 245, 0.45);
+      box-shadow: 0 10px 22px rgba(37, 99, 235, 0.55);
       filter: brightness(1.03);
     }
 
     .download-btn:active {
       transform: translateY(1px);
-      box-shadow: 0 2px 6px rgba(79, 109, 245, 0.35);
+      box-shadow: 0 5px 12px rgba(37, 99, 235, 0.42);
       filter: brightness(0.97);
+    }
+
+    /* 푸터 */
+    .footer {
+      margin-top: 40px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(148, 163, 184, 0.3);
+      font-size: 11px;
+      color: #9ca3af;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer strong {
+      font-weight: 600;
+      color: #6b7280;
+    }
+
+    @media (max-width: 640px) {
+      .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .hero {
+        padding: 28px 0 26px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <h1 class="title">WX워크숍 송도(52차수) 리더님 28명 사진</h1>
-  <p class="subtitle">
-    아래 <strong>다운로드</strong> 버튼을 누르시면 각 사진을 저장하실 수 있습니다.
-  </p>
+  <div class="wrapper">
+    <!-- 상단 헤더 -->
+    <header class="site-header">
+      <div class="logo">
+        <div class="logo-badge">WX</div>
+        <span>Workshop Gallery</span>
+      </div>
+      <nav class="nav">
+        <span>52차(송도)</span>
+        <span>리더님 사진 28장</span>
+      </nav>
+    </header>
 
-  <div class="grid">
-    <!-- 0 -->
-    <div class="item">
-      <div class="thumb"><img src="image0.png" alt="차장님 사진 0" /></div>
-      <a class="download-btn" href="image0.png" download="WX_52th_0.png">다운로드</a>
-    </div>
+    <!-- 히어로 영역 -->
+    <section class="hero">
+      <div class="hero-tag">
+        <span>WX워크숍 52차(송도)</span>
+        <span>리더님 포토 아카이브</span>
+      </div>
+      <h1 class="hero-title">리더님들의 한 컷 한 컷을 모았습니다.</h1>
+      <p class="hero-sub">
+        아래 <strong>개별 다운로드 버튼</strong>을 누르시면<br />
+        리더님 한 분 한 분의 사진을 고화질로 저장하실 수 있습니다.
+      </p>
+      <button class="hero-cta" type="button">
+        <span class="icon">📁</span>
+        <span>전체 사진은 추후 일괄 공유 예정입니다</span>
+      </button>
+      <p class="hero-caption">
+        ※ PC에서 열람하시는 것을 권장드립니다.
+      </p>
+    </section>
 
-    <!-- 1 -->
-    <div class="item">
-      <div class="thumb"><img src="image1.png" alt="리더님 사진 1" /></div>
-      <a class="download-btn" href="image1.png" download="WX_52th_1.png">다운로드</a>
-    </div>
+    <!-- 갤러리 -->
+    <section>
+      <h2 class="section-title">리더님 개별 사진 다운로드</h2>
+      <p class="section-desc">
+        카드 위에 마우스를 올리면 살짝 떠오르는 효과와 함께 사진이 강조됩니다.
+      </p>
 
-    <!-- 2 -->
-    <div class="item">
-      <div class="thumb"><img src="image2.png" alt="리더님 사진 2" /></div>
-      <a class="download-btn" href="image2.png" download="WX_52th_2.png">다운로드</a>
-    </div>
+      <div class="grid">
+        <!-- 0 -->
+        <div class="item">
+          <div class="tag">52th · Leader 0</div>
+          <div class="thumb"><img src="image0.png" alt="차장님 사진 0" /></div>
+          <p class="name">차장님 사진 0</p>
+          <a class="download-btn" href="image0.png" download="WX_52th_0.png">다운로드</a>
+        </div>
 
-    <!-- 3 -->
-    <div class="item">
-      <div class="thumb"><img src="image3.png" alt="리더님 사진 3" /></div>
-      <a class="download-btn" href="image3.png" download="WX_52th_3.png">다운로드</a>
-    </div>
+        <!-- 1 -->
+        <div class="item">
+          <div class="tag">52th · Leader 1</div>
+          <div class="thumb"><img src="image1.png" alt="리더님 사진 1" /></div>
+          <p class="name">리더님 사진 1</p>
+          <a class="download-btn" href="image1.png" download="WX_52th_1.png">다운로드</a>
+        </div>
 
-    <!-- 4 -->
-    <div class="item">
-      <div class="thumb"><img src="image4.png" alt="리더님 사진 4" /></div>
-      <a class="download-btn" href="image4.png" download="WX_52th_4.png">다운로드</a>
-    </div>
+        <!-- 2 -->
+        <div class="item">
+          <div class="tag">52th · Leader 2</div>
+          <div class="thumb"><img src="image2.png" alt="리더님 사진 2" /></div>
+          <p class="name">리더님 사진 2</p>
+          <a class="download-btn" href="image2.png" download="WX_52th_2.png">다운로드</a>
+        </div>
 
-    <!-- 5 -->
-    <div class="item">
-      <div class="thumb"><img src="image5.png" alt="리더님 사진 5" /></div>
-      <a class="download-btn" href="image5.png" download="WX_52th_5.png">다운로드</a>
-    </div>
+        <!-- 3 -->
+        <div class="item">
+          <div class="tag">52th · Leader 3</div>
+          <div class="thumb"><img src="image3.png" alt="리더님 사진 3" /></div>
+          <p class="name">리더님 사진 3</p>
+          <a class="download-btn" href="image3.png" download="WX_52th_3.png">डाउन로드</a>
+        </div>
 
-    <!-- 6 -->
-    <div class="item">
-      <div class="thumb"><img src="image6.png" alt="리더님 사진 6" /></div>
-      <a class="download-btn" href="image6.png" download="WX_52th_6.png">다운로드</a>
-    </div>
+        <!-- 4 -->
+        <div class="item">
+          <div class="tag">52th · Leader 4</div>
+          <div class="thumb"><img src="image4.png" alt="리더님 사진 4" /></div>
+          <p class="name">리더님 사진 4</p>
+          <a class="download-btn" href="image4.png" download="WX_52th_4.png">다운로드</a>
+        </div>
 
-    <!-- 7 -->
-    <div class="item">
-      <div class="thumb"><img src="image7.png" alt="리더님 사진 7" /></div>
-      <a class="download-btn" href="image7.png" download="WX_52th_7.png">다운로드</a>
-    </div>
+        <!-- 5 -->
+        <div class="item">
+          <div class="tag">52th · Leader 5</div>
+          <div class="thumb"><img src="image5.png" alt="리더님 사진 5" /></div>
+          <p class="name">리더님 사진 5</p>
+          <a class="download-btn" href="image5.png" download="WX_52th_5.png">다운로드</a>
+        </div>
 
-    <!-- 8 -->
-    <div class="item">
-      <div class="thumb"><img src="image8.png" alt="리더님 사진 8" /></div>
-      <a class="download-btn" href="image8.png" download="WX_52th_8.png">다운로드</a>
-    </div>
+        <!-- 6 -->
+        <div class="item">
+          <div class="tag">52th · Leader 6</div>
+          <div class="thumb"><img src="image6.png" alt="리더님 사진 6" /></div>
+          <p class="name">리더님 사진 6</p>
+          <a class="download-btn" href="image6.png" download="WX_52th_6.png">다운로드</a>
+        </div>
 
-    <!-- 9 -->
-    <div class="item">
-      <div class="thumb"><img src="image9.png" alt="리더님 사진 9" /></div>
-      <a class="download-btn" href="image9.png" download="WX_52th_9.png">다운로드</a>
-    </div>
+        <!-- 7 -->
+        <div class="item">
+          <div class="tag">52th · Leader 7</div>
+          <div class="thumb"><img src="image7.png" alt="리더님 사진 7" /></div>
+          <p class="name">리더님 사진 7</p>
+          <a class="download-btn" href="image7.png" download="WX_52th_7.png">다운로드</a>
+        </div>
 
-    <!-- 10 -->
-    <div class="item">
-      <div class="thumb"><img src="image10.png" alt="리더님 사진 10" /></div>
-      <a class="download-btn" href="image10.png" download="WX_52th_10.png">다운로드</a>
-    </div>
+        <!-- 8 -->
+        <div class="item">
+          <div class="tag">52th · Leader 8</div>
+          <div class="thumb"><img src="image8.png" alt="리더님 사진 8" /></div>
+          <p class="name">리더님 사진 8</p>
+          <a class="download-btn" href="image8.png" download="WX_52th_8.png">다운로드</a>
+        </div>
 
-    <!-- 11 -->
-    <div class="item">
-      <div class="thumb"><img src="image11.png" alt="리더님 사진 11" /></div>
-      <a class="download-btn" href="image11.png" download="WX_52th_11.png">다운로드</a>
-    </div>
+        <!-- 9 -->
+        <div class="item">
+          <div class="tag">52th · Leader 9</div>
+          <div class="thumb"><img src="image9.png" alt="리더님 사진 9" /></div>
+          <p class="name">리더님 사진 9</p>
+          <a class="download-btn" href="image9.png" download="WX_52th_9.png">다운로드</a>
+        </div>
 
-    <!-- 12 -->
-    <div class="item">
-      <div class="thumb"><img src="image12.png" alt="리더님 사진 12" /></div>
-      <a class="download-btn" href="image12.png" download="WX_52th_12.png">다운로드</a>
-    </div>
+        <!-- 10 -->
+        <div class="item">
+          <div class="tag">52th · Leader 10</div>
+          <div class="thumb"><img src="image10.png" alt="리더님 사진 10" /></div>
+          <p class="name">리더님 사진 10</p>
+          <a class="download-btn" href="image10.png" download="WX_52th_10.png">다운로드</a>
+        </div>
 
-    <!-- 13 -->
-    <div class="item">
-      <div class="thumb"><img src="image13.png" alt="리더님 사진 13" /></div>
-      <a class="download-btn" href="image13.png" download="WX_52th_13.png">다운로드</a>
-    </div>
+        <!-- 11 -->
+        <div class="item">
+          <div class="tag">52th · Leader 11</div>
+          <div class="thumb"><img src="image11.png" alt="리더님 사진 11" /></div>
+          <p class="name">리더님 사진 11</p>
+          <a class="download-btn" href="image11.png" download="WX_52th_11.png">다운로드</a>
+        </div>
 
-    <!-- 14 -->
-    <div class="item">
-      <div class="thumb"><img src="image14.png" alt="리더님 사진 14" /></div>
-      <a class="download-btn" href="image14.png" download="WX_52th_14.png">다운로드</a>
-    </div>
+        <!-- 12 -->
+        <div class="item">
+          <div class="tag">52th · Leader 12</div>
+          <div class="thumb"><img src="image12.png" alt="리더님 사진 12" /></div>
+          <p class="name">리더님 사진 12</p>
+          <a class="download-btn" href="image12.png" download="WX_52th_12.png">다운로드</a>
+        </div>
 
-    <!-- 15 -->
-    <div class="item">
-      <div class="thumb"><img src="image15.png" alt="리더님 사진 15" /></div>
-      <a class="download-btn" href="image15.png" download="WX_52th_15.png">다운로드</a>
-    </div>
+        <!-- 13 -->
+        <div class="item">
+          <div class="tag">52th · Leader 13</div>
+          <div class="thumb"><img src="image13.png" alt="리더님 사진 13" /></div>
+          <p class="name">리더님 사진 13</p>
+          <a class="download-btn" href="image13.png" download="WX_52th_13.png">다운로드</a>
+        </div>
 
-    <!-- 16 -->
-    <div class="item">
-      <div class="thumb"><img src="image16.png" alt="리더님 사진 16" /></div>
-      <a class="download-btn" href="image16.png" download="WX_52th_16.png">다운로드</a>
-    </div>
+        <!-- 14 -->
+        <div class="item">
+          <div class="tag">52th · Leader 14</div>
+          <div class="thumb"><img src="image14.png" alt="리더님 사진 14" /></div>
+          <p class="name">리더님 사진 14</p>
+          <a class="download-btn" href="image14.png" download="WX_52th_14.png">다운로드</a>
+        </div>
 
-    <!-- 17 -->
-    <div class="item">
-      <div class="thumb"><img src="image17.png" alt="리더님 사진 17" /></div>
-      <a class="download-btn" href="image17.png" download="WX_52th_17.png">다운로드</a>
-    </div>
+        <!-- 15 -->
+        <div class="item">
+          <div class="tag">52th · Leader 15</div>
+          <div class="thumb"><img src="image15.png" alt="리더님 사진 15" /></div>
+          <p class="name">리더님 사진 15</p>
+          <a class="download-btn" href="image15.png" download="WX_52th_15.png">다운로드</a>
+        </div>
 
-    <!-- 18 -->
-    <div class="item">
-      <div class="thumb"><img src="image18.png" alt="리더님 사진 18" /></div>
-      <a class="download-btn" href="image18.png" download="WX_52th_18.png">다운로드</a>
-    </div>
+        <!-- 16 -->
+        <div class="item">
+          <div class="tag">52th · Leader 16</div>
+          <div class="thumb"><img src="image16.png" alt="리더님 사진 16" /></div>
+          <p class="name">리더님 사진 16</p>
+          <a class="download-btn" href="image16.png" download="WX_52th_16.png">다운로드</a>
+        </div>
 
-    <!-- 19 -->
-    <div class="item">
-      <div class="thumb"><img src="image19.png" alt="리더님 사진 19" /></div>
-      <a class="download-btn" href="image19.png" download="WX_52th_19.png">다운로드</a>
-    </div>
+        <!-- 17 -->
+        <div class="item">
+          <div class="tag">52th · Leader 17</div>
+          <div class="thumb"><img src="image17.png" alt="리더님 사진 17" /></div>
+          <p class="name">리더님 사진 17</p>
+          <a class="download-btn" href="image17.png" download="WX_52th_17.png">다운로드</a>
+        </div>
 
-    <!-- 20 -->
-    <div class="item">
-      <div class="thumb"><img src="image20.png" alt="리더님 사진 20" /></div>
-      <a class="download-btn" href="image20.png" download="WX_52th_20.png">다운로드</a>
-    </div>
+        <!-- 18 -->
+        <div class="item">
+          <div class="tag">52th · Leader 18</div>
+          <div class="thumb"><img src="image18.png" alt="리더님 사진 18" /></div>
+          <p class="name">리더님 사진 18</p>
+          <a class="download-btn" href="image18.png" download="WX_52th_18.png">다운로드</a>
+        </div>
 
-    <!-- 21 -->
-    <div class="item">
-      <div class="thumb"><img src="image21.png" alt="리더님 사진 21" /></div>
-      <a class="download-btn" href="image21.png" download="WX_52th_21.png">다운로드</a>
-    </div>
+        <!-- 19 -->
+        <div class="item">
+          <div class="tag">52th · Leader 19</div>
+          <div class="thumb"><img src="image19.png" alt="리더님 사진 19" /></div>
+          <p class="name">리더님 사진 19</p>
+          <a class="download-btn" href="image19.png" download="WX_52th_19.png">다운로드</a>
+        </div>
 
-    <!-- 22 -->
-    <div class="item">
-      <div class="thumb"><img src="image22.png" alt="리더님 사진 22" /></div>
-      <a class="download-btn" href="image22.png" download="WX_52th_22.png">다운로드</a>
-    </div>
+        <!-- 20 -->
+        <div class="item">
+          <div class="tag">52th · Leader 20</div>
+          <div class="thumb"><img src="image20.png" alt="리더님 사진 20" /></div>
+          <p class="name">리더님 사진 20</p>
+          <a class="download-btn" href="image20.png" download="WX_52th_20.png">다운로드</a>
+        </div>
 
-    <!-- 23 -->
-    <div class="item">
-      <div class="thumb"><img src="image23.png" alt="리더님 사진 23" /></div>
-      <a class="download-btn" href="image23.png" download="WX_52th_23.png">다운로드</a>
-    </div>
+        <!-- 21 -->
+        <div class="item">
+          <div class="tag">52th · Leader 21</div>
+          <div class="thumb"><img src="image21.png" alt="리더님 사진 21" /></div>
+          <p class="name">리더님 사진 21</p>
+          <a class="download-btn" href="image21.png" download="WX_52th_21.png">다운로드</a>
+        </div>
 
-    <!-- 24 -->
-    <div class="item">
-      <div class="thumb"><img src="image24.png" alt="리더님 사진 24" /></div>
-      <a class="download-btn" href="image24.png" download="WX_52th_24.png">다운로드</a>
-    </div>
+        <!-- 22 -->
+        <div class="item">
+          <div class="tag">52th · Leader 22</div>
+          <div class="thumb"><img src="image22.png" alt="리더님 사진 22" /></div>
+          <p class="name">리더님 사진 22</p>
+          <a class="download-btn" href="image22.png" download="WX_52th_22.png">다운로드</a>
+        </div>
 
-    <!-- 25 -->
-    <div class="item">
-      <div class="thumb"><img src="image25.png" alt="리더님 사진 25" /></div>
-      <a class="download-btn" href="image25.png" download="WX_52th_25.png">다운로드</a>
-    </div>
+        <!-- 23 -->
+        <div class="item">
+          <div class="tag">52th · Leader 23</div>
+          <div class="thumb"><img src="image23.png" alt="리더님 사진 23" /></div>
+          <p class="name">리더님 사진 23</p>
+          <a class="download-btn" href="image23.png" download="WX_52th_23.png">다운로드</a>
+        </div>
 
-    <!-- 26 -->
-    <div class="item">
-      <div class="thumb"><img src="image26.png" alt="리더님 사진 26" /></div>
-      <a class="download-btn" href="image26.png" download="WX_52th_26.png">다운로드</a>
-    </div>
+        <!-- 24 -->
+        <div class="item">
+          <div class="tag">52th · Leader 24</div>
+          <div class="thumb"><img src="image24.png" alt="리더님 사진 24" /></div>
+          <p class="name">리더님 사진 24</p>
+          <a class="download-btn" href="image24.png" download="WX_52th_24.png">다운로드</a>
+        </div>
 
-    <!-- 27 -->
-    <div class="item">
-      <div class="thumb"><img src="image27.png" alt="리더님 사진 27" /></div>
-      <a class="download-btn" href="image27.png" download="WX_52th_27.png">다운로드</a>
-    </div>
+        <!-- 25 -->
+        <div class="item">
+          <div class="tag">52th · Leader 25</div>
+          <div class="thumb"><img src="image25.png" alt="리더님 사진 25" /></div>
+          <p class="name">리더님 사진 25</p>
+          <a class="download-btn" href="image25.png" download="WX_52th_25.png">다운로드</a>
+        </div>
+
+        <!-- 26 -->
+        <div class="item">
+          <div class="tag">52th · Leader 26</div>
+          <div class="thumb"><img src="image26.png" alt="리더님 사진 26" /></div>
+          <p class="name">리더님 사진 26</p>
+          <a class="download-btn" href="image26.png" download="WX_52th_26.png">다운로드</a>
+        </div>
+
+        <!-- 27 -->
+        <div class="item">
+          <div class="tag">52th · Leader 27</div>
+          <div class="thumb"><img src="image27.png" alt="리더님 사진 27" /></div>
+          <p class="name">리더님 사진 27</p>
+          <a class="download-btn" href="image27.png" download="WX_52th_27.png">다운로드</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+      <span><strong>WX 워크숍 52차(송도)</strong> · 리더님 사진 공유 페이지</span>
+      <span>문의 : 포스코인재창조원 차연주 사원</span>
+    </footer>
   </div>
 </body>
 </html>
