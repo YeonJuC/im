@@ -3,14 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>WX워크숍 52차수(송도) 리더님 28명 사진 갤러리</title>
+  <title>WX워크숍 53차수(송도) 리더님 27명 사진 갤러리</title>
 
   <!-- Pretendard & Inter -->
   <link rel="stylesheet" as="style"
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-  
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
+
   <style>
     * {
       box-sizing: border-box;
@@ -20,9 +19,9 @@
 
     body {
       font-family: "Pretendard", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-                  system-ui, "Noto Sans KR", sans-serif;
+        system-ui, "Noto Sans KR", sans-serif;
       background:
-        radial-gradient(circle at top left, #e2ebff 0, #f6f7fb 45%, #edf2ff 100%);
+        radial-gradient(circle at top left, #fee2e2 0, #fefce8 40%, #e0f2fe 100%);
       color: #111827;
     }
 
@@ -30,19 +29,35 @@
       max-width: 1120px;
       margin: 0 auto;
       padding: 24px 20px 80px;
+      position: relative;
+    }
+
+    /* 살짝 눈 내리는 느낌의 오버레이 */
+    .wrapper::before {
+      content: "";
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.55) 0, transparent 55%);
+      background-size: 180px 180px;
+      opacity: 0.45;
+      mix-blend-mode: screen;
     }
 
     /* ===== 상단 헤더 ===== */
     .site-header {
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 12px 18px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.86);
+      background: rgba(255, 255, 255, 0.9);
       box-shadow: 0 12px 40px rgba(15, 23, 42, 0.14);
       margin-bottom: 30px;
       backdrop-filter: blur(14px);
+      z-index: 1;
     }
 
     .logo-area {
@@ -55,13 +70,14 @@
       width: 30px;
       height: 30px;
       border-radius: 9px;
-      background: linear-gradient(135deg, #2563eb, #6366f1);
+      background: linear-gradient(135deg, #ef4444, #16a34a);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 12px;
       color: #fff;
       font-weight: 700;
+      box-shadow: 0 6px 14px rgba(148, 27, 27, 0.45);
     }
 
     .logo-text-main {
@@ -86,13 +102,16 @@
     .nav-pill {
       padding: 5px 12px;
       border-radius: 999px;
-      background: rgba(37, 99, 235, 0.06);
-      color: #2563eb;
+      background: linear-gradient(135deg, #ef4444, #16a34a);
+      color: #fff;
       font-weight: 600;
+      box-shadow: 0 8px 18px rgba(148, 27, 27, 0.45);
     }
 
     /* ===== 히어로 섹션 ===== */
     .hero {
+      position: relative;
+      z-index: 1;
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
       gap: 40px;
@@ -110,8 +129,8 @@
       font-weight: 500;
       font-size: 12px;
       letter-spacing: 0.08em;
-      color: #1d4ed8; /* 차분한 파란색 */
-      opacity: 0.85;
+      color: #b91c1c;
+      opacity: 0.9;
     }
 
     .hero-title {
@@ -120,7 +139,7 @@
       letter-spacing: -0.05em;
       margin-top: 5px;
       margin-bottom: 12px;
-      background: linear-gradient(110deg, #111827, #1d4ed8, #f97316);
+      background: linear-gradient(110deg, #111827, #b91c1c, #16a34a);
       -webkit-background-clip: text;
       color: transparent;
     }
@@ -153,140 +172,64 @@
       color: #4b5563;
     }
 
+    .hero-badge.christmas {
+      background: rgba(239, 68, 68, 0.1);
+      color: #b91c1c;
+      border: 1px solid rgba(248, 113, 113, 0.5);
+    }
+
     .hero-caption {
       font-size: 11px;
       color: #9ca3af;
       margin-top: 4px;
     }
 
+    .hero-caption-xmas {
+      margin-top: 4px;
+      color: #b91c1c;
+      font-weight: 500;
+    }
+
     /* 오른쪽 비주얼 */
-  .hero-visual {
-    position: relative;
-    width: 100%;
-    height: 260px;
-    border-radius: 26px;
-    background:
-      radial-gradient(circle at top left, #4f46e5, transparent 55%),
-      radial-gradient(circle at bottom right, #fb923c, transparent 55%),
-      #020617;
-    overflow: hidden;
-    box-shadow: 0 25px 60px rgba(15, 23, 42, 0.55);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* 슬라이더 전체 컨테이너 */
-  .hero-visual-inner {
-    position: relative;
-    width: 80%;
-    max-width: 320px;
-    margin: 0 auto;
-  }
-  
-  /* 트랙: 이게 좌우로 움직임 */
-  .hero-slider-track {
-    display: flex;
-    transition: transform 0.7s ease-in-out;
-  }
-  
-  /* 각 슬라이드 */
-  .hero-slide {
-    min-width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  /* 카드 두 개 디자인 (기존 것 그대로 사용) */
-  .hero-card-main,
-  .hero-card-sub {
-    border-radius: 18px;
-    padding: 10px;
-    background: rgba(15, 23, 42, 0.92);
-    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.7);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    overflow: hidden;
-  }
-  
-  .hero-card-main {
-    transform: rotate(-2.2deg) translateX(-4px);
-  }
-  
-  .hero-card-sub {
-    transform: rotate(3deg) translateX(12px);
-    opacity: .9;
-  }
-  
-  .hero-avatar {
-  width: 48px;
-  height: 60px;
-  border-radius: 14px;
-  background: rgba(15, 23, 42, 0.96); /* 어두운 배경만 남기기 */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
+    .hero-visual {
+      position: relative;
+      width: 100%;
+      height: 260px;
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at top left, #dc2626, transparent 55%),
+        radial-gradient(circle at bottom right, #16a34a, transparent 55%),
+        #020617;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(15, 23, 42, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-/* 아이콘/이미지 공통 스타일 */
-.hero-avatar img {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-}
-  
-  .hero-card-text-title {
-    font-size: 13px;
-    font-weight: 600;
-    color: #e5e7eb;
-    margin-bottom: 4px;
-  }
-  
-  .hero-card-text-sub {
-    font-size: 11px;
-    color: #9ca3af;
-  }
-  
-  /* 상단 작은 라벨 */
-  .hero-tag {
-    position: absolute;
-    top: 14px;
-    left: 16px;
-    padding: 4px 10px;
-    border-radius: 999px;
-    background: rgba(15, 23, 42, 0.8);
-    color: #e5e7eb;
-    font-size: 11px;
-    font-weight: 500;
-  }
-  
-  /* 하단 인디케이터 점 */
-  .hero-dots {
-    position: absolute;
-    bottom: -18px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 6px;
-    justify-content: center;
-  }
-  
-  .hero-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.4);
-    transition: all 0.25s ease;
-  }
-  
-  .hero-dot.active {
-    width: 16px;
-    background: #ffffff;
-  }
+    /* 슬라이더 전체 컨테이너 */
+    .hero-visual-inner {
+      position: relative;
+      width: 80%;
+      max-width: 320px;
+      margin: 0 auto;
+    }
 
+    /* 트랙: 이게 좌우로 움직임 */
+    .hero-slider-track {
+      display: flex;
+      transition: transform 0.7s ease-in-out;
+    }
+
+    /* 각 슬라이드 */
+    .hero-slide {
+      min-width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* 카드 두 개 디자인 */
     .hero-card-main,
     .hero-card-sub {
       border-radius: 18px;
@@ -312,7 +255,18 @@
       width: 48px;
       height: 60px;
       border-radius: 14px;
-      background: linear-gradient(135deg, #f97316, #facc15);
+      background: rgba(15, 23, 42, 0.96);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* 아이콘/이미지 공통 스타일 */
+    .hero-avatar img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
     }
 
     .hero-card-text-title {
@@ -327,6 +281,7 @@
       color: #9ca3af;
     }
 
+    /* 상단 작은 라벨 */
     .hero-tag {
       position: absolute;
       top: 14px;
@@ -339,25 +294,66 @@
       font-weight: 500;
     }
 
+    /* 하단 인디케이터 점 */
+    .hero-dots {
+      position: absolute;
+      bottom: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+    }
+
+    .hero-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.4);
+      transition: all 0.25s ease;
+    }
+
+    .hero-dot.active {
+      width: 16px;
+      background: #ffffff;
+    }
+
     /* ===== 갤러리 섹션 ===== */
     .gallery-section {
+      position: relative;
+      z-index: 1;
       margin-top: 20px;
       padding: 18px 18px 22px;
       border-radius: 24px;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.96);
       box-shadow: 0 18px 50px rgba(15, 23, 42, 0.14);
       backdrop-filter: blur(10px);
+      border: 1px solid rgba(248, 250, 252, 0.9);
     }
 
     .section-title {
       font-size: 16px;
       font-weight: 700;
       margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .section-title::before {
+      content: "🎄";
+      font-size: 15px;
     }
 
     .section-desc {
       font-size: 13px;
       color: #6b7280;
+      margin-bottom: 6px;
+    }
+
+    .section-desc-xmas {
+      font-size: 12px;
+      color: #b91c1c;
       margin-bottom: 18px;
     }
 
@@ -373,7 +369,7 @@
       border-radius: 20px;
       padding: 10px 10px 16px;
       background:
-        radial-gradient(circle at top, rgba(248, 250, 252, 0.9), rgba(226, 232, 240, 0.6));
+        radial-gradient(circle at top, rgba(248, 250, 252, 0.9), rgba(226, 232, 240, 0.7));
       box-shadow: 0 14px 36px rgba(15, 23, 42, 0.14);
       overflow: hidden;
       transition: transform 0.16s ease, box-shadow 0.16s ease;
@@ -383,7 +379,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at top, rgba(255, 255, 255, .6), transparent 60%);
+      background: radial-gradient(circle at top, rgba(255, 255, 255, .7), transparent 60%);
       opacity: 0;
       transition: opacity 0.18s ease;
       pointer-events: none;
@@ -447,27 +443,29 @@
       border-radius: 999px;
       border: none;
       text-decoration: none;
-      background: linear-gradient(135deg, #2563eb, #4f46e5);
+      background: linear-gradient(135deg, #ef4444, #16a34a);
       color: #fff;
       font-weight: 600;
-      box-shadow: 0 8px 18px rgba(37, 99, 235, 0.45);
+      box-shadow: 0 8px 18px rgba(148, 27, 27, 0.45);
       transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
     }
 
     .download-btn:hover {
       transform: translateY(-1px);
-      box-shadow: 0 10px 22px rgba(37, 99, 235, 0.55);
+      box-shadow: 0 10px 22px rgba(148, 27, 27, 0.6);
       filter: brightness(1.03);
     }
 
     .download-btn:active {
       transform: translateY(1px);
-      box-shadow: 0 5px 12px rgba(37, 99, 235, 0.42);
+      box-shadow: 0 5px 12px rgba(148, 27, 27, 0.42);
       filter: brightness(0.97);
     }
 
     /* ===== 푸터 ===== */
     .footer {
+      position: relative;
+      z-index: 1;
       margin-top: 30px;
       font-size: 11px;
       color: #9ca3af;
@@ -493,11 +491,15 @@
       .hero-badges {
         justify-content: center;
       }
-      .hero-caption {
+      .hero-caption,
+      .hero-caption-xmas {
         text-align: center;
       }
       .hero-visual {
         height: 240px;
+      }
+      .site-header {
+        border-radius: 18px;
       }
     }
 
@@ -506,7 +508,6 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 6px;
-        border-radius: 18px;
       }
       .hero {
         padding-top: 28px;
@@ -537,15 +538,15 @@
         </div>
       </div>
       <nav class="nav">
-        <span>리더님 사진 28장</span>
-        <span class="nav-pill">개별 사진 다운로드 전용</span>
+        <span>리더님 사진 27장</span>
+        <span class="nav-pill">크리스마스 에디션 · 개별 다운로드</span>
       </nav>
     </header>
 
     <!-- 히어로 -->
     <section class="hero">
       <div class="hero-text">
-        <p class="hero-tagline">WX워크숍 53차수 리더 포토 아카이브</p>
+        <p class="hero-tagline">WX워크숍 53차수 리더 포토 아카이브 · HOLIDAY EDITION 🎄</p>
         <h1 class="hero-title">리더님들의 한 컷 한 컷을 모았습니다.</h1>
         <p class="hero-sub">
           아래 <strong>개별 다운로드 버튼</strong>을 누르시면<br />
@@ -555,24 +556,28 @@
         <div class="hero-badges">
           <span class="hero-badge">송도 53차수 · 2025</span>
           <span class="hero-badge">리더님 개별 컷 제공</span>
+          <span class="hero-badge christmas">크리스마스 시즌 특별 페이지</span>
           <span class="hero-badge">PC 열람 권장</span>
         </div>
 
         <p class="hero-caption">
           ※ 전체 일괄 사진은 별도로 공유되지 않으며, 개별 사진만 다운로드 가능합니다.
         </p>
+        <p class="hero-caption hero-caption-xmas">
+          🎅 따뜻한 크리스마스 시즌, WX에서 함께한 순간들이 리더님들께 작은 선물이 되길 바랍니다.
+        </p>
       </div>
 
       <div class="hero-visual">
-        <div class="hero-tag">Preview · Leader Cards</div>
-      
+        <div class="hero-tag">Preview · Christmas Leader Cards</div>
+
         <div class="hero-visual-inner">
           <div class="hero-slider-track">
             <!-- ✅ 1번 슬라이드 -->
             <div class="hero-slide">
               <div class="hero-card-main">
                 <div class="hero-avatar">
-                  <span style="font-size:24px;">😊</span>
+                  <span style="font-size:24px;">🎄</span>
                 </div>
                 <div>
                   <div class="hero-card-text-title">WX · Teacher</div>
@@ -580,20 +585,20 @@
                 </div>
               </div>
               <div class="hero-card-sub">
-                <div class="hero-avatar" style="background: linear-gradient(135deg,#22c55e,#06b6d4);">
-                  <span style="font-size:24px;">🖱️</span>
+                <div class="hero-avatar" style="background: rgba(15,23,42,0.96);">
+                  <span style="font-size:24px;">❄️</span>
                 </div>
                 <div>
-                  <div class="hero-card-text-title">52th · Leader</div>
+                  <div class="hero-card-text-title">53th · Leader</div>
                   <div class="hero-card-text-sub">카드 위에 마우스를 올리면 사진이 강조됩니다.</div>
                 </div>
               </div>
             </div>
-      
+
             <!-- ✅ 2번 슬라이드 -->
             <div class="hero-slide">
               <div class="hero-card-main">
-                <div class="hero-avatar" style="background: linear-gradient(135deg,#38bdf8,#6366f1);">
+                <div class="hero-avatar">
                   <span style="font-size:24px;">📷</span>
                 </div>
                 <div>
@@ -602,8 +607,8 @@
                 </div>
               </div>
               <div class="hero-card-sub">
-                <div class="hero-avatar" style="background: linear-gradient(135deg,#f97316,#ec4899);">
-                  <span style="font-size:24px;">💻</span>
+                <div class="hero-avatar">
+                  <span style="font-size:24px;">🎁</span>
                 </div>
                 <div>
                   <div class="hero-card-text-title">PC 열람 권장</div>
@@ -611,21 +616,21 @@
                 </div>
               </div>
             </div>
-      
+
             <!-- ✅ 3번 슬라이드 -->
             <div class="hero-slide">
               <div class="hero-card-main">
-                <div class="hero-avatar" style="background: linear-gradient(135deg,#22c55e,#a3e635);">
-                  <span style="font-size:24px;">✌️</span>
+                <div class="hero-avatar">
+                  <span style="font-size:24px;">✨</span>
                 </div>
                 <div>
-                  <div class="hero-card-text-title">WX 워크숍 52차</div>
+                  <div class="hero-card-text-title">WX 워크숍 53차</div>
                   <div class="hero-card-text-sub">송도에서 함께한 리더님들의 순간을 기록했습니다.</div>
                 </div>
               </div>
               <div class="hero-card-sub">
-                <div class="hero-avatar" style="background: linear-gradient(135deg,#0ea5e9,#22c55e);">
-                  <span style="font-size:24px;">✨</span>
+                <div class="hero-avatar">
+                  <span style="font-size:24px;">🕯️</span>
                 </div>
                 <div>
                   <div class="hero-card-text-title">Leader Archive</div>
@@ -634,7 +639,7 @@
               </div>
             </div>
           </div>
-      
+
           <!-- 인디케이터 점 -->
           <div class="hero-dots">
             <span class="hero-dot active"></span>
@@ -651,277 +656,272 @@
       <p class="section-desc">
         카드 위에 마우스를 올리면 살짝 떠오르는 효과와 함께 사진이 강조됩니다.
       </p>
+      <p class="section-desc-xmas">
+        🎄 사진을 저장하셔서, 연말·크리스마스 인사에 함께 활용해 보셔도 좋습니다.
+      </p>
 
       <div class="grid">
         <!-- 0 -->
         <div class="item">
           <div class="tag">WX · Teacher</div>
-          <div class="thumb"><img src="image0.png" alt="차장님 사진 0" /></div>
+          <div class="thumb"><img src="image0.png" alt="차장님 사진" /></div>
           <p class="name">이종은 강사님 사진</p>
-          <a class="download-btn" href="image0.png" download="WX_52th_0.png">다운로드</a>
+          <a class="download-btn" href="image0.png" download="WX_53th_0.png">다운로드</a>
         </div>
 
         <!-- 1 -->
         <div class="item">
-          <div class="tag">52th · Leader 1</div>
+          <div class="tag">53th · Leader 1</div>
           <div class="thumb"><img src="image1.png" alt="리더님 사진 1" /></div>
           <p class="name">리더님 사진 1</p>
-          <a class="download-btn" href="image1.png" download="WX_52th_1.png">다운로드</a>
+          <a class="download-btn" href="image1.png" download="WX_53th_1.png">다운로드</a>
         </div>
 
         <!-- 2 -->
         <div class="item">
-          <div class="tag">52th · Leader 2</div>
+          <div class="tag">53th · Leader 2</div>
           <div class="thumb"><img src="image2.png" alt="리더님 사진 2" /></div>
           <p class="name">리더님 사진 2</p>
-          <a class="download-btn" href="image2.png" download="WX_52th_2.png">다운로드</a>
+          <a class="download-btn" href="image2.png" download="WX_53th_2.png">다운로드</a>
         </div>
 
         <!-- 3 -->
         <div class="item">
-          <div class="tag">52th · Leader 3</div>
+          <div class="tag">53th · Leader 3</div>
           <div class="thumb"><img src="image3.png" alt="리더님 사진 3" /></div>
           <p class="name">리더님 사진 3</p>
-          <a class="download-btn" href="image3.png" download="WX_52th_3.png">다운로드</a>
+          <a class="download-btn" href="image3.png" download="WX_53th_3.png">다운로드</a>
         </div>
 
         <!-- 4 -->
         <div class="item">
-          <div class="tag">52th · Leader 4</div>
+          <div class="tag">53th · Leader 4</div>
           <div class="thumb"><img src="image4.png" alt="리더님 사진 4" /></div>
           <p class="name">리더님 사진 4</p>
-          <a class="download-btn" href="image4.png" download="WX_52th_4.png">다운로드</a>
+          <a class="download-btn" href="image4.png" download="WX_53th_4.png">다운로드</a>
         </div>
 
         <!-- 5 -->
         <div class="item">
-          <div class="tag">52th · Leader 5</div>
+          <div class="tag">53th · Leader 5</div>
           <div class="thumb"><img src="image5.png" alt="리더님 사진 5" /></div>
           <p class="name">리더님 사진 5</p>
-          <a class="download-btn" href="image5.png" download="WX_52th_5.png">다운로드</a>
+          <a class="download-btn" href="image5.png" download="WX_53th_5.png">다운로드</a>
         </div>
 
         <!-- 6 -->
         <div class="item">
-          <div class="tag">52th · Leader 6</div>
+          <div class="tag">53th · Leader 6</div>
           <div class="thumb"><img src="image6.png" alt="리더님 사진 6" /></div>
           <p class="name">리더님 사진 6</p>
-          <a class="download-btn" href="image6.png" download="WX_52th_6.png">다운로드</a>
+          <a class="download-btn" href="image6.png" download="WX_53th_6.png">다운로드</a>
         </div>
 
         <!-- 7 -->
         <div class="item">
-          <div class="tag">52th · Leader 7</div>
+          <div class="tag">53th · Leader 7</div>
           <div class="thumb"><img src="image7.png" alt="리더님 사진 7" /></div>
           <p class="name">리더님 사진 7</p>
-          <a class="download-btn" href="image7.png" download="WX_52th_7.png">다운로드</a>
+          <a class="download-btn" href="image7.png" download="WX_53th_7.png">다운로드</a>
         </div>
 
         <!-- 8 -->
         <div class="item">
-          <div class="tag">52th · Leader 8</div>
+          <div class="tag">53th · Leader 8</div>
           <div class="thumb"><img src="image8.png" alt="리더님 사진 8" /></div>
           <p class="name">리더님 사진 8</p>
-          <a class="download-btn" href="image8.png" download="WX_52th_8.png">다운로드</a>
+          <a class="download-btn" href="image8.png" download="WX_53th_8.png">다운로드</a>
         </div>
 
         <!-- 9 -->
         <div class="item">
-          <div class="tag">52th · Leader 9</div>
+          <div class="tag">53th · Leader 9</div>
           <div class="thumb"><img src="image9.png" alt="리더님 사진 9" /></div>
           <p class="name">리더님 사진 9</p>
-          <a class="download-btn" href="image9.png" download="WX_52th_9.png">다운로드</a>
+          <a class="download-btn" href="image9.png" download="WX_53th_9.png">다운로드</a>
         </div>
 
         <!-- 10 -->
         <div class="item">
-          <div class="tag">52th · Leader 10</div>
+          <div class="tag">53th · Leader 10</div>
           <div class="thumb"><img src="image10.png" alt="리더님 사진 10" /></div>
           <p class="name">리더님 사진 10</p>
-          <a class="download-btn" href="image10.png" download="WX_52th_10.png">다운로드</a>
+          <a class="download-btn" href="image10.png" download="WX_53th_10.png">다운로드</a>
         </div>
 
         <!-- 11 -->
         <div class="item">
-          <div class="tag">52th · Leader 11</div>
+          <div class="tag">53th · Leader 11</div>
           <div class="thumb"><img src="image11.png" alt="리더님 사진 11" /></div>
           <p class="name">리더님 사진 11</p>
-          <a class="download-btn" href="image11.png" download="WX_52th_11.png">다운로드</a>
+          <a class="download-btn" href="image11.png" download="WX_53th_11.png">다운로드</a>
         </div>
 
         <!-- 12 -->
         <div class="item">
-          <div class="tag">52th · Leader 12</div>
+          <div class="tag">53th · Leader 12</div>
           <div class="thumb"><img src="image12.png" alt="리더님 사진 12" /></div>
           <p class="name">리더님 사진 12</p>
-          <a class="download-btn" href="image12.png" download="WX_52th_12.png">다운로드</a>
+          <a class="download-btn" href="image12.png" download="WX_53th_12.png">다운로드</a>
         </div>
 
         <!-- 13 -->
         <div class="item">
-          <div class="tag">52th · Leader 13</div>
+          <div class="tag">53th · Leader 13</div>
           <div class="thumb"><img src="image13.png" alt="리더님 사진 13" /></div>
           <p class="name">리더님 사진 13</p>
-          <a class="download-btn" href="image13.png" download="WX_52th_13.png">다운로드</a>
+          <a class="download-btn" href="image13.png" download="WX_53th_13.png">다운로드</a>
         </div>
 
         <!-- 14 -->
         <div class="item">
-          <div class="tag">52th · Leader 14</div>
+          <div class="tag">53th · Leader 14</div>
           <div class="thumb"><img src="image14.png" alt="리더님 사진 14" /></div>
           <p class="name">리더님 사진 14</p>
-          <a class="download-btn" href="image14.png" download="WX_52th_14.png">다운로드</a>
+          <a class="download-btn" href="image14.png" download="WX_53th_14.png">다운로드</a>
         </div>
 
         <!-- 15 -->
         <div class="item">
-          <div class="tag">52th · Leader 15</div>
+          <div class="tag">53th · Leader 15</div>
           <div class="thumb"><img src="image15.png" alt="리더님 사진 15" /></div>
           <p class="name">리더님 사진 15</p>
-          <a class="download-btn" href="image15.png" download="WX_52th_15.png">다운로드</a>
+          <a class="download-btn" href="image15.png" download="WX_53th_15.png">다운로드</a>
         </div>
 
         <!-- 16 -->
         <div class="item">
-          <div class="tag">52th · Leader 16</div>
+          <div class="tag">53th · Leader 16</div>
           <div class="thumb"><img src="image16.png" alt="리더님 사진 16" /></div>
           <p class="name">리더님 사진 16</p>
-          <a class="download-btn" href="image16.png" download="WX_52th_16.png">다운로드</a>
+          <a class="download-btn" href="image16.png" download="WX_53th_16.png">다운로드</a>
         </div>
 
         <!-- 17 -->
         <div class="item">
-          <div class="tag">52th · Leader 17</div>
+          <div class="tag">53th · Leader 17</div>
           <div class="thumb"><img src="image17.png" alt="리더님 사진 17" /></div>
           <p class="name">리더님 사진 17</p>
-          <a class="download-btn" href="image17.png" download="WX_52th_17.png">다운로드</a>
+          <a class="download-btn" href="image17.png" download="WX_53th_17.png">다운로드</a>
         </div>
 
         <!-- 18 -->
         <div class="item">
-          <div class="tag">52th · Leader 18</div>
+          <div class="tag">53th · Leader 18</div>
           <div class="thumb"><img src="image18.png" alt="리더님 사진 18" /></div>
           <p class="name">리더님 사진 18</p>
-          <a class="download-btn" href="image18.png" download="WX_52th_18.png">다운로드</a>
+          <a class="download-btn" href="image18.png" download="WX_53th_18.png">다운로드</a>
         </div>
 
         <!-- 19 -->
         <div class="item">
-          <div class="tag">52th · Leader 19</div>
+          <div class="tag">53th · Leader 19</div>
           <div class="thumb"><img src="image19.png" alt="리더님 사진 19" /></div>
           <p class="name">리더님 사진 19</p>
-          <a class="download-btn" href="image19.png" download="WX_52th_19.png">다운로드</a>
+          <a class="download-btn" href="image19.png" download="WX_53th_19.png">다운로드</a>
         </div>
 
         <!-- 20 -->
         <div class="item">
-          <div class="tag">52th · Leader 20</div>
+          <div class="tag">53th · Leader 20</div>
           <div class="thumb"><img src="image20.png" alt="리더님 사진 20" /></div>
           <p class="name">리더님 사진 20</p>
-          <a class="download-btn" href="image20.png" download="WX_52th_20.png">다운로드</a>
+          <a class="download-btn" href="image20.png" download="WX_53th_20.png">다운로드</a>
         </div>
 
         <!-- 21 -->
         <div class="item">
-          <div class="tag">52th · Leader 21</div>
+          <div class="tag">53th · Leader 21</div>
           <div class="thumb"><img src="image21.png" alt="리더님 사진 21" /></div>
           <p class="name">리더님 사진 21</p>
-          <a class="download-btn" href="image21.png" download="WX_52th_21.png">다운로드</a>
+          <a class="download-btn" href="image21.png" download="WX_53th_21.png">다운로드</a>
         </div>
 
         <!-- 22 -->
         <div class="item">
-          <div class="tag">52th · Leader 22</div>
+          <div class="tag">53th · Leader 22</div>
           <div class="thumb"><img src="image22.png" alt="리더님 사진 22" /></div>
           <p class="name">리더님 사진 22</p>
-          <a class="download-btn" href="image22.png" download="WX_52th_22.png">다운로드</a>
+          <a class="download-btn" href="image22.png" download="WX_53th_22.png">다운로드</a>
         </div>
 
         <!-- 23 -->
         <div class="item">
-          <div class="tag">52th · Leader 23</div>
+          <div class="tag">53th · Leader 23</div>
           <div class="thumb"><img src="image23.png" alt="리더님 사진 23" /></div>
           <p class="name">리더님 사진 23</p>
-          <a class="download-btn" href="image23.png" download="WX_52th_23.png">다운로드</a>
+          <a class="download-btn" href="image23.png" download="WX_53th_23.png">다운로드</a>
         </div>
 
         <!-- 24 -->
         <div class="item">
-          <div class="tag">52th · Leader 24</div>
+          <div class="tag">53th · Leader 24</div>
           <div class="thumb"><img src="image24.png" alt="리더님 사진 24" /></div>
           <p class="name">리더님 사진 24</p>
-          <a class="download-btn" href="image24.png" download="WX_52th_24.png">다운로드</a>
+          <a class="download-btn" href="image24.png" download="WX_53th_24.png">다운로드</a>
         </div>
 
         <!-- 25 -->
         <div class="item">
-          <div class="tag">52th · Leader 25</div>
+          <div class="tag">53th · Leader 25</div>
           <div class="thumb"><img src="image25.png" alt="리더님 사진 25" /></div>
           <p class="name">리더님 사진 25</p>
-          <a class="download-btn" href="image25.png" download="WX_52th_25.png">다운로드</a>
+          <a class="download-btn" href="image25.png" download="WX_53th_25.png">다운로드</a>
         </div>
 
         <!-- 26 -->
         <div class="item">
-          <div class="tag">52th · Leader 26</div>
+          <div class="tag">53th · Leader 26</div>
           <div class="thumb"><img src="image26.png" alt="리더님 사진 26" /></div>
           <p class="name">리더님 사진 26</p>
-          <a class="download-btn" href="image26.png" download="WX_52th_26.png">다운로드</a>
+          <a class="download-btn" href="image26.png" download="WX_53th_26.png">다운로드</a>
         </div>
 
         <!-- 27 -->
         <div class="item">
-          <div class="tag">52th · Leader 27</div>
+          <div class="tag">53th · Leader 27</div>
           <div class="thumb"><img src="image27.png" alt="리더님 사진 27" /></div>
           <p class="name">리더님 사진 27</p>
-          <a class="download-btn" href="image27.png" download="WX_52th_27.png">다운로드</a>
-        </div>
-
-        <!-- 28 -->
-        <div class="item">
-          <div class="tag">52th · Leader 28</div>
-          <div class="thumb"><img src="image28.png" alt="리더님 사진 28" /></div>
-          <p class="name">리더님 사진 28</p>
-          <a class="download-btn" href="image28.png" download="WX_52th_28.png">다운로드</a>
+          <a class="download-btn" href="image27.png" download="WX_53th_27.png">다운로드</a>
         </div>
       </div>
     </section>
 
     <!-- 푸터 -->
     <footer class="footer">
-      <span><strong>WX 워크숍 52차(송도)</strong> · 리더님 사진 공유 페이지</span>
-      <span>문의 : 포스코인재창조원 차연주 사원</span>
+      <span><strong>WX 워크숍 53차(송도)</strong> · 리더님 사진 공유 페이지</span>
+      <span>문의 : 포스코인재창조원 차연주 사원 · 메리 크리스마스 🎄</span>
     </footer>
   </div>
 </body>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const track = document.querySelector(".hero-slider-track");
-      const slides = document.querySelectorAll(".hero-slide");
-      const dots = document.querySelectorAll(".hero-dot");
-  
-      if (!track || slides.length === 0) return;
-  
-      let index = 0;
-      const total = slides.length;
-  
-      function updateSlider() {
-        track.style.transform = `translateX(${-index * 100}%)`;
-        dots.forEach((dot, i) => {
-          dot.classList.toggle("active", i === index);
-        });
-      }
-  
-      function nextSlide() {
-        index = (index + 1) % total;
-        updateSlider();
-      }
-  
-      // 2초마다 자동 전환
-      setInterval(nextSlide, 2000);
-  
-      // 초기 상태 적용
+  document.addEventListener("DOMContentLoaded", function () {
+    const track = document.querySelector(".hero-slider-track");
+    const slides = document.querySelectorAll(".hero-slide");
+    const dots = document.querySelectorAll(".hero-dot");
+
+    if (!track || slides.length === 0) return;
+
+    let index = 0;
+    const total = slides.length;
+
+    function updateSlider() {
+      track.style.transform = `translateX(${-index * 100}%)`;
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === index);
+      });
+    }
+
+    function nextSlide() {
+      index = (index + 1) % total;
       updateSlider();
-    });
-  </script>
+    }
+
+    // 2초마다 자동 전환
+    setInterval(nextSlide, 2000);
+
+    // 초기 상태 적용
+    updateSlider();
+  });
+</script>
 </html>
