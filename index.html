@@ -439,16 +439,16 @@
     .fortune-popup {
       position: absolute;
       left: 50%;
-      bottom: 32px;                 /* 쿠키 바로 위로 띄우기 */
+      bottom: 32px;
       transform: translateX(-50%) translateY(6px);
       background: #fff;
-      padding: 10px 12px;
+      padding: 10px 12px 8px;
       border-radius: 10px;
       box-shadow: 0 4px 14px rgba(0,0,0,0.15);
       font-size: 12px;
       line-height: 1.5;
-      max-width: 180px;             /* 카드 안에 들어오게 */
-      white-space: normal;          /* 줄바꿈 허용 */
+      max-width: 200px;
+      white-space: normal;
       text-align: center;
       z-index: 100;
       opacity: 0;
@@ -460,6 +460,25 @@
       opacity: 1;
       transform: translateX(-50%) translateY(0);
       pointer-events: auto;
+    }
+    
+    .fortune-message {
+      display: block;
+      margin-bottom: 6px;
+    }
+    
+    .fortune-close-btn {
+      border: none;
+      background: #e5e7eb;
+      color: #374151;
+      border-radius: 999px;
+      padding: 2px 10px;
+      font-size: 11px;
+      cursor: pointer;
+    }
+    
+    .fortune-close-btn:hover {
+      background: #d1d5db;
     }
     
     .cookie-wrapper {
@@ -1030,6 +1049,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   cookieIcons.forEach(icon => {
     icon.addEventListener("click", (e) => {
+      e.stopPropagation(); // 클릭 전파 막기
+
       // 기존 팝업 제거
       if (currentPopup) {
         currentPopup.remove();
@@ -1040,7 +1061,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const popup = document.createElement("div");
       popup.className = "fortune-popup";
-      popup.textContent = message;
+      popup.innerHTML = `
+        <span class="fortune-message">${message}</span>
+        <button type="button" class="fortune-close-btn">닫기</button>
+      `;
 
       const wrapper = icon.parentElement;
       wrapper.appendChild(popup);
@@ -1048,18 +1072,19 @@ document.addEventListener("DOMContentLoaded", function () {
       popup.classList.add("show");
       currentPopup = popup;
 
-      // 팝업 자체 클릭하면 닫기
-      popup.addEventListener("click", () => {
+      // 닫기 버튼 클릭 시
+      const closeBtn = popup.querySelector(".fortune-close-btn");
+      closeBtn.addEventListener("click", (evt) => {
+        evt.stopPropagation();
         popup.remove();
         currentPopup = null;
       });
     });
   });
 
-  // 바깥 영역 클릭 시 닫기
+  // 바깥 영역 클릭 시 팝업 닫기
   document.addEventListener("click", (e) => {
-    if (!e.target.classList.contains("cookie-icon") &&
-        !e.target.classList.contains("fortune-popup")) {
+    if (!e.target.closest(".fortune-popup") && !e.target.closest(".cookie-icon")) {
       if (currentPopup) {
         currentPopup.remove();
         currentPopup = null;
@@ -1068,4 +1093,5 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
+
 </html>
