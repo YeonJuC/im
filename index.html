@@ -437,15 +437,26 @@
     }
 
     .fortune-text {
-      min-height: 38px; /* ★ 문구 높이 고정 (필요하면 더 늘릴 수 있음) */
+      min-height: 38px;
       font-size: 13px;
       font-weight: 500;
       color: #111827;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
+      text-align: center;
       display: flex;
       align-items: center;
-      justify-content: center; /* 가운데 정렬 */
-      text-align: center;
+      justify-content: center;
+    }
+    
+    .cookie-icon {
+      font-size: 20px;
+      cursor: pointer;
+      margin-bottom: 8px;
+      transition: transform 0.25s ease;
+    }
+    
+    .cookie-icon:hover {
+      transform: rotate(8deg) scale(1.15);
     }
 
     .download-btn {
@@ -673,7 +684,7 @@
         <!-- 0 -->
         <div class="item">
           <div class="tag">WX · Teacher</div>
-          <div class="thumb"><img src="images/image0.png" alt="차장님 사진" /></div>
+          <div class="thumb"><img src="image0.png" alt="차장님 사진" /></div>
           <p class="fortune-text">이종은 강사님 — 오늘의 운세: 최고의 날👍</p>
           <a class="download-btn" href="image0.png" download>다운로드</a>
         </div>
@@ -681,202 +692,253 @@
         <!-- 1 -->
         <div class="item">
           <div class="tag">53th · Leader 1</div>
-          <div class="thumb"><img src="images/image1.png" /></div>
-          <p class="fortune-text">Leader 01 — 오늘의 운세: 존재감 상승↗️</p>
-          <a class="download-btn" href="image1.png" download>다운로드</a>
+          <div class="thumb"><img src="image1.png" alt="리더님 사진 1" /></div>
+          <p class="fortune-text">Leader 01</p>
+          <div class="cookie-icon"
+               data-fortune="Leader 01 — 오늘의 운세: 신뢰가 깊어지는 날입니다.">🍪</div>
+          <a class="download-btn" href="image1.png" download="WX_53th_1.png">다운로드</a>
         </div>
         
         <!-- 2 -->
         <div class="item">
           <div class="tag">53th · Leader 2</div>
-          <div class="thumb"><img src="images/image2.png" /></div>
-          <p class="fortune-text">Leader 02 — 오늘의 운세: 에너지 활짝🌞</p>
-          <a class="download-btn" href="image2.png" download>다운로드</a>
+          <div class="thumb"><img src="image2.png" alt="리더님 사진 2" /></div>
+          <p class="fortune-text">Leader 02</p>
+          <div class="cookie-icon"
+               data-fortune="Leader 02 — 오늘의 운세: 밝은 기운이 부드럽게 흐릅니다.">🍪</div>
+          <a class="download-btn" href="image2.png" download="WX_53th_2.png">다운로드</a>
         </div>
         
         <!-- 3 -->
         <div class="item">
           <div class="tag">53th · Leader 3</div>
-          <div class="thumb"><img src="images/image3.png" /></div>
-          <p class="fortune-text">Leader 03 — 오늘의 운세: 따뜻한 리더십 발동🔥</p>
-          <a class="download-btn" href="image3.png" download>다운로드</a>
+          <div class="thumb"><img src="image3.png" alt="리더님 사진 3" /></div>
+          <p class="fortune-text">Leader 03</p>
+          <div class="cookie-icon"
+               data-fortune="Leader 03 — 오늘의 운세: 리더십이 자연스럽게 드러납니다.">🍪</div>
+          <a class="download-btn" href="image3.png" download="WX_53th_3.png">다운로드</a>
         </div>
         
         <!-- 4 -->
         <div class="item">
           <div class="tag">53th · Leader 4</div>
-          <div class="thumb"><img src="images/image4.png" /></div>
-          <p class="fortune-text">Leader 04 — 오늘의 운세: 미소가 행운을 부릅니다😊</p>
-          <a class="download-btn" href="image4.png" download>다운로드</a>
+          <div class="thumb"><img src="image4.png" alt="리더님 사진 4" /></div>
+          <p class="fortune-text">Leader 04</p>
+          <div class="cookie-icon"
+               data-fortune="Leader 04 — 오늘의 운세: 주변에서 긍정적 반응이 이어집니다.">🍪</div>
+          <a class="download-btn" href="image4.png" download="WX_53th_4.png">다운로드</a>
         </div>
         
         <!-- 5 -->
         <div class="item">
           <div class="tag">53th · Leader 5</div>
-          <div class="thumb"><img src="images/image5.png" /></div>
-          <p class="fortune-text">Leader 05 — 오늘의 운세: 팀 분위기 UP📈</p>
-          <a class="download-btn" href="image5.png" download>다운로드</a>
+          <div class="thumb"><img src="image5.png" alt="리더님 사진 5" /></div>
+          <p class="fortune-text">Leader 05</p>
+          <div class="cookie-icon"
+               data-fortune="Leader 05 — 오늘의 운세: 협업의 시너지가 더해지는 날입니다.">🍪</div>
+          <a class="download-btn" href="image5.png" download="WX_53th_5.png">다운로드</a>
         </div>
         
         <!-- 6 -->
         <div class="item">
           <div class="tag">53th · Leader 6</div>
-          <div class="thumb"><img src="images/image6.png" /></div>
-          <p class="fortune-text">Leader 06 — 오늘의 운세: 카리스마 +10 증가✨</p>
-          <a class="download-btn" href="image6.png" download>다운로드</a>
+          <div class="thumb"><img src="image6.png" alt="리더님 사진 6" /></div>
+          <p class="fortune-text">Leader 06</p>
+          <div class="cookie-icon"
+               data-fortune="Leader 06 — 오늘의 운세: 편안하고 안정적인 흐름입니다.">🍪</div>
+          <a class="download-btn" href="image6.png" download="WX_53th_6.png">다운로드</a>
         </div>
         
         <!-- 7 -->
         <div class="item">
           <div class="tag">53th · Leader 7</div>
-          <div class="thumb"><img src="images/image7.png" /></div>
-          <p class="fortune-text">Leader 07 — 오늘의 운세: 말만 해도 호감도 Up💬💛</p>
-          <a class="download-btn" href="image7.png" download>다운로드</a>
+          <div class="thumb"><img src="image7.png" alt="리더님 사진 7" /></div>
+          <p class="fortune-text">Leader 07</p>
+          <div class="cookie-icon"
+               data-fortune="Leader 07 — 오늘의 운세: 따뜻한 에너지가 전해집니다.">🍪</div>
+          <a class="download-btn" href="image7.png" download="WX_53th_7.png">다운로드</a>
         </div>
         
         <!-- 8 -->
         <div class="item">
           <div class="tag">53th · Leader 8</div>
-          <div class="thumb"><img src="images/image8.png" /></div>
-          <p class="fortune-text">Leader 08 — 오늘의 운세: 귀여운 행운이 따라옵니다🍀</p>
-          <a class="download-btn" href="image8.png" download>다운로드</a>
+          <div class="thumb"><img src="image8.png" alt="리더님 사진 8" /></div>
+          <p class="fortune-text">Leader 08</p>
+          <div class="cookie-icon"
+               data-fortune="Leader 08 — 오늘의 운세: 좋은 소식이 기대되는 하루입니다.">🍪</div>
+          <a class="download-btn" href="image8.png" download="WX_53th_8.png">다운로드</a>
         </div>
         
         <!-- 9 -->
         <div class="item">
           <div class="tag">53th · Leader 9</div>
-          <div class="thumb"><img src="images/image9.png" /></div>
-          <p class="fortune-text">Leader 09 — 오늘의 운세: 오늘은 센터 주인공👑</p>
-          <a class="download-btn" href="image9.png" download>다운로드</a>
+          <div class="thumb"><img src="image9.png" alt="리더님 사진 9" /></div>
+          <p class="fortune-text">Leader 09</p>
+          <div class="cookie-icon"
+               data-fortune="Leader 09 — 오늘의 운세: 집중력이 또렷해지는 날입니다.">🍪</div>
+          <a class="download-btn" href="image9.png" download="WX_53th_9.png">다운로드</a>
         </div>
         
         <!-- 10 -->
         <div class="item">
           <div class="tag">53th · Leader 10</div>
-          <div class="thumb"><img src="images/image10.png" /></div>
-          <p class="fortune-text">Leader 10 — 오늘의 운세: 일 잘 되는 날!🚀</p>
-          <a class="download-btn" href="image10.png" download>다운로드</a>
+          <div class="thumb"><img src="image10.png" alt="리더님 사진 10" /></div>
+          <p class="fortune-text">Leader 10</p>
+          <div class="cookie-icon"
+               data-fortune="Leader 10 — 오늘의 운세: 실수가 줄고 결과가 좋아집니다.">🍪</div>
+          <a class="download-btn" href="image10.png" download="WX_53th_10.png">다운로드</a>
         </div>
         
         <!-- 11 -->
         <div class="item">
           <div class="tag">53th · Leader 11</div>
-          <div class="thumb"><img src="images/image11.png" /></div>
-          <p class="fortune-text">Leader 11 — 오늘의 운세: 포토제닉 지수 상승📸</p>
-          <a class="download-btn" href="image11.png" download>다운로드</a>
+          <div class="thumb"><img src="image11.png" alt="리더님 사진 11" /></div>
+          <p class="fortune-text">Leader 11</p>
+          <div class="cookie-icon"
+               data-fortune="Leader 11 — 오늘의 운세: 여유가 자연스럽게 생깁니다.">🍪</div>
+          <a class="download-btn" href="image11.png" download="WX_53th_11.png">다운로드</a>
         </div>
         
         <!-- 12 -->
         <div class="item">
           <div class="tag">53th · Leader 12</div>
-          <div class="thumb"><img src="images/image12.png" /></div>
-          <p class="fortune-text">Leader 12 — 오늘의 운세: 긍정 에너지 만렙⚡</p>
-          <a class="download-btn" href="image12.png" download>다운로드</a>
+          <div class="thumb"><img src="image12.png" alt="리더님 사진 12" /></div>
+          <p class="fortune-text">Leader 12</p>
+          <div class="cookie-icon"
+               data-fortune="Leader 12 — 오늘의 운세: 흐름이 부드럽게 이어집니다.">🍪</div>
+          <a class="download-btn" href="image12.png" download="WX_53th_12.png">다운로드</a>
         </div>
         
         <!-- 13 -->
         <div class="item">
           <div class="tag">53th · Leader 13</div>
-          <div class="thumb"><img src="images/image13.png" /></div>
-          <p class="fortune-text">Leader 13 — 오늘의 운세: 편안한 기운이 돕습니다🌿</p>
-          <a class="download-btn" href="image13.png" download>다운로드</a>
+          <div class="thumb"><img src="image13.png" alt="리더님 사진 13" /></div>
+          <p class="fortune-text">Leader 13</p>
+          <div class="cookie-icon"
+               data-fortune="Leader 13 — 오늘의 운세: 따뜻한 인연이 들어옵니다.">🍪</div>
+          <a class="download-btn" href="image13.png" download="WX_53th_13.png">다운로드</a>
         </div>
         
         <!-- 14 -->
         <div class="item">
           <div class="tag">53th · Leader 14</div>
-          <div class="thumb"><img src="images/image14.png" /></div>
-          <p class="fortune-text">Leader 14 — 오늘의 운세: 주변이 더 빛나 보입니다✨</p>
-          <a class="download-btn" href="image14.png" download>다운로드</a>
+          <div class="thumb"><img src="image14.png" alt="리더님 사진 14" /></div>
+          <p class="fortune-text">Leader 14</p>
+          <div class="cookie-icon"
+               data-fortune="Leader 14 — 오늘의 운세: 조화로운 에너지가 맴돕니다.">🍪</div>
+          <a class="download-btn" href="image14.png" download="WX_53th_14.png">다운로드</a>
         </div>
         
         <!-- 15 -->
         <div class="item">
           <div class="tag">53th · Leader 15</div>
-          <div class="thumb"><img src="images/image15.png" /></div>
-          <p class="fortune-text">Leader 15 — 오늘의 운세: 배려심이 복을 부릅니다🎁</p>
-          <a class="download-btn" href="image15.png" download>다운로드</a>
+          <div class="thumb"><img src="image15.png" alt="리더님 사진 15" /></div>
+          <p class="fortune-text">Leader 15</p>
+          <div class="cookie-icon"
+               data-fortune="Leader 15 — 오늘의 운세: 작은 성과가 기분 좋게 찾아옵니다.">🍪</div>
+          <a class="download-btn" href="image15.png" download="WX_53th_15.png">다운로드</a>
         </div>
         
         <!-- 16 -->
         <div class="item">
           <div class="tag">53th · Leader 16</div>
-          <div class="thumb"><img src="images/image16.png" /></div>
-          <p class="fortune-text">Leader 16 — 오늘의 운세: 팀원들이 유난히 따뜻해요🤝</p>
-          <a class="download-btn" href="image16.png" download>다운로드</a>
+          <div class="thumb"><img src="image16.png" alt="리더님 사진 16" /></div>
+          <p class="fortune-text">Leader 16</p>
+          <div class="cookie-icon"
+               data-fortune="Leader 16 — 오늘의 운세: 주변으로부터 신뢰를 얻는 날입니다.">🍪</div>
+          <a class="download-btn" href="image16.png" download="WX_53th_16.png">다운로드</a>
         </div>
         
         <!-- 17 -->
         <div class="item">
           <div class="tag">53th · Leader 17</div>
-          <div class="thumb"><img src="images/image17.png" /></div>
-          <p class="fortune-text">Leader 17 — 오늘의 운세: 집중력 최고조🎯</p>
-          <a class="download-btn" href="image17.png" download>다운로드</a>
+          <div class="thumb"><img src="image17.png" alt="리더님 사진 17" /></div>
+          <p class="fortune-text">Leader 17</p>
+          <div class="cookie-icon"
+               data-fortune="Leader 17 — 오늘의 운세: 컨디션과 집중력이 조화를 이룹니다.">🍪</div>
+          <a class="download-btn" href="image17.png" download="WX_53th_17.png">다운로드</a>
         </div>
         
         <!-- 18 -->
         <div class="item">
           <div class="tag">53th · Leader 18</div>
-          <div class="thumb"><img src="images/image18.png" /></div>
-          <p class="fortune-text">Leader 18 — 오늘의 운세: 유머 감각 상승😄</p>
-          <a class="download-btn" href="image18.png" download>다운로드</a>
+          <div class="thumb"><img src="image18.png" alt="리더님 사진 18" /></div>
+          <p class="fortune-text">Leader 18</p>
+          <div class="cookie-icon"
+               data-fortune="Leader 18 — 오늘의 운세: 예상치 못한 행운이 스며듭니다.">🍪</div>
+          <a class="download-btn" href="image18.png" download="WX_53th_18.png">다운로드</a>
         </div>
         
         <!-- 19 -->
         <div class="item">
           <div class="tag">53th · Leader 19</div>
-          <div class="thumb"><img src="images/image19.png" /></div>
-          <p class="fortune-text">Leader 19 — 오늘의 운세: 잔잔한 행운이 흐릅니다🌊</p>
-          <a class="download-btn" href="image19.png" download>다운로드</a>
+          <div class="thumb"><img src="image19.png" alt="리더님 사진 19" /></div>
+          <p class="fortune-text">Leader 19</p>
+          <div class="cookie-icon"
+               data-fortune="Leader 19 — 오늘의 운세: 마음이 가볍고 일상이 단단해집니다.">🍪</div>
+          <a class="download-btn" href="image19.png" download="WX_53th_19.png">다운로드</a>
         </div>
         
         <!-- 20 -->
         <div class="item">
           <div class="tag">53th · Leader 20</div>
-          <div class="thumb"><img src="images/image20.png" /></div>
-          <p class="fortune-text">Leader 20 — 오늘의 운세: 안정감 + 신뢰감 강화🔒</p>
-          <a class="download-btn" href="image20.png" download>다운로드</a>
+          <div class="thumb"><img src="image20.png" alt="리더님 사진 20" /></div>
+          <p class="fortune-text">Leader 20</p>
+          <div class="cookie-icon"
+               data-fortune="Leader 20 — 오늘의 운세: 결단력 있는 선택이 빛을 발합니다.">🍪</div>
+          <a class="download-btn" href="image20.png" download="WX_53th_20.png">다운로드</a>
         </div>
         
         <!-- 21 -->
         <div class="item">
           <div class="tag">53th · Leader 21</div>
-          <div class="thumb"><img src="images/image21.png" /></div>
-          <p class="fortune-text">Leader 21 — 오늘의 운세: 오늘은 ‘갓생 모드’🕊️</p>
-          <a class="download-btn" href="image21.png" download>다운로드</a>
+          <div class="thumb"><img src="image21.png" alt="리더님 사진 21" /></div>
+          <p class="fortune-text">Leader 21</p>
+          <div class="cookie-icon"
+               data-fortune="Leader 21 — 오늘의 운세: 차분함 속에서 좋은 흐름이 이어집니다.">🍪</div>
+          <a class="download-btn" href="image21.png" download="WX_53th_21.png">다운로드</a>
         </div>
         
         <!-- 22 -->
         <div class="item">
           <div class="tag">53th · Leader 22</div>
-          <div class="thumb"><img src="images/image22.png" /></div>
-          <p class="fortune-text">Leader 22 — 오늘의 운세: 멋짐 폭발💥</p>
-          <a class="download-btn" href="image22.png" download>다운로드</a>
+          <div class="thumb"><img src="image22.png" alt="리더님 사진 22" /></div>
+          <p class="fortune-text">Leader 22</p>
+          <div class="cookie-icon"
+               data-fortune="Leader 22 — 오늘의 운세: 분위기가 자연스럽게 좋아집니다.">🍪</div>
+          <a class="download-btn" href="image22.png" download="WX_53th_22.png">다운로드</a>
         </div>
         
         <!-- 23 -->
         <div class="item">
           <div class="tag">53th · Leader 23</div>
-          <div class="thumb"><img src="images/image23.png" /></div>
-          <p class="fortune-text">Leader 23 — 오늘의 운세: 운 좋은 선택이 따라옵니다🎯</p>
-          <a class="download-btn" href="image23.png" download>다운로드</a>
+          <div class="thumb"><img src="image23.png" alt="리더님 사진 23" /></div>
+          <p class="fortune-text">Leader 23</p>
+          <div class="cookie-icon"
+               data-fortune="Leader 23 — 오늘의 운세: 안정 속에서 새로운 기회가 열립니다.">🍪</div>
+          <a class="download-btn" href="image23.png" download="WX_53th_23.png">다운로드</a>
         </div>
         
         <!-- 24 -->
         <div class="item">
           <div class="tag">53th · Leader 24</div>
-          <div class="thumb"><img src="images/image24.png" /></div>
-          <p class="fortune-text">Leader 24 — 오늘의 운세: 밝은 기운이 포근하게 감싸요☀️</p>
-          <a class="download-btn" href="image24.png" download>다운로드</a>
+          <div class="thumb"><img src="image24.png" alt="리더님 사진 24" /></div>
+          <p class="fortune-text">Leader 24</p>
+          <div class="cookie-icon"
+               data-fortune="Leader 24 — 오늘의 운세: 실력과 매력이 모두 드러나는 날입니다.">🍪</div>
+          <a class="download-btn" href="image24.png" download="WX_53th_24.png">다운로드</a>
         </div>
         
         <!-- 25 -->
         <div class="item">
           <div class="tag">53th · Leader 25</div>
-          <div class="thumb"><img src="images/image25.png" /></div>
-          <p class="fortune-text">Leader 25 — 오늘의 운세: 오늘의 행운 포인트, 바로 당신⭐</p>
-          <a class="download-btn" href="image25.png" download>다운로드</a>
+          <div class="thumb"><img src="image25.png" alt="리더님 사진 25" /></div>
+          <p class="fortune-text">Leader 25</p>
+          <div class="cookie-icon"
+               data-fortune="Leader 25 — 오늘의 운세: 오늘의 노력은 좋은 결과로 이어집니다.">🍪</div>
+          <a class="download-btn" href="image25.png" download="WX_53th_25.png">다운로드</a>
         </div>
+
           
       </div>
     </section>
@@ -887,7 +949,14 @@
       <span>문의 : 포스코인재창조원 차연주 사원 · 메리 크리스마스 🎄</span>
     </footer>
   </div>
+  <div id="fortune-modal" class="fortune-modal">
+    <div class="fortune-box">
+      <p id="fortune-text"></p>
+      <button class="close-btn" onclick="closeFortune()">닫기</button>
+    </div>
+  </div>
 </body>
+  
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const track = document.querySelector(".hero-slider-track");
@@ -917,5 +986,18 @@
     // 초기 상태 적용
     updateSlider();
   });
+</script>
+<script>
+  document.querySelectorAll('.cookie-icon').forEach(icon => {
+    icon.addEventListener('click', () => {
+      const fortune = icon.getAttribute('data-fortune');
+      document.getElementById('fortune-text').innerText = fortune;
+      document.getElementById('fortune-modal').classList.add('show');
+    });
+  });
+
+  function closeFortune() {
+    document.getElementById('fortune-modal').classList.remove('show');
+  }
 </script>
 </html>
