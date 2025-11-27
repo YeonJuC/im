@@ -498,6 +498,25 @@
       transform: rotate(8deg) scale(1.15);
     }
 
+    .sub-text {
+      font-size: 14px;
+      color: #4b5563;
+    }
+    
+    /* 쿠키 아이콘 클릭 부분 강조 */
+    .cookie-highlight {
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 999px;
+      background: #fff7e6;
+      box-shadow: 0 0 0 1px rgba(217, 119, 6, 0.3);
+    }
+    
+    /* 마우스 올렸을 때 */
+    .cookie-highlight:hover {
+      text-decoration: underline;
+    }
+
     .download-btn {
       display: inline-block;
       padding: 6px 16px;
@@ -715,8 +734,8 @@
     <!-- 갤러리 -->
     <section class="gallery-section">
       <h2 class="section-title">리더님 개별 사진 다운로드</h2>
-      <p class="section-desc">
-        카드 위에 <p class="hero-caption hero-caption-xmas">쿠키 아이콘</p>을 클릭하시면 오늘의 운세가 나옵니다.
+      <p class="sub-text">
+        카드 위에 <span class="cookie-highlight">쿠키 아이콘을 클릭</span>하시면 오늘의 운세가 나옵니다.
       </p>
 
       <div class="grid">
