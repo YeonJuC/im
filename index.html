@@ -436,16 +436,43 @@
       margin-bottom: 8px;
     }
 
-    .fortune-text {
-      min-height: 38px;
-      font-size: 13px;
-      font-weight: 500;
-      color: #111827;
-      margin-bottom: 6px;
-      text-align: center;
+    .fortune-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.38);
       display: flex;
       align-items: center;
       justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    
+    .fortune-modal.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    
+    .fortune-box {
+      background: #fff;
+      padding: 22px 30px;
+      border-radius: 18px;
+      max-width: 320px;
+      width: 90%;
+      text-align: center;
+      font-size: 15px;
+      line-height: 1.5;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+    }
+    
+    .close-btn {
+      margin-top: 12px;
+      padding: 6px 12px;
+      border: none;
+      background: #2563eb;
+      color: #fff;
+      border-radius: 8px;
+      cursor: pointer;
     }
     
     .cookie-icon {
@@ -958,13 +985,13 @@
 </body>
   
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const track = document.querySelector(".hero-slider-track");
-    const slides = document.querySelectorAll(".hero-slide");
-    const dots = document.querySelectorAll(".hero-dot");
+document.addEventListener("DOMContentLoaded", function () {
+  // ===== 히어로 슬라이더 =====
+  const track = document.querySelector(".hero-slider-track");
+  const slides = document.querySelectorAll(".hero-slide");
+  const dots = document.querySelectorAll(".hero-dot");
 
-    if (!track || slides.length === 0) return;
-
+  if (track && slides.length > 0) {
     let index = 0;
     const total = slides.length;
 
@@ -982,42 +1009,27 @@
 
     // 2초마다 자동 전환
     setInterval(nextSlide, 2000);
-
-    // 초기 상태 적용
     updateSlider();
-  });
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-  // === 기존 슬라이드 코드 여기 있음 ===
-  const track = document.querySelector(".hero-slider-track");
-  const slides = document.querySelectorAll(".hero-slide");
-  const dots = document.querySelectorAll(".hero-dot");
-
-  if (track && slides.length > 0) {
-    // 슬라이더 동작 코드...
   }
 
-  // ============================
-  // 🍪 포춘쿠키 클릭 모달 기능
-  // ============================
+  // ===== 🍪 포춘쿠키 모달 =====
   const cookieIcons = document.querySelectorAll('.cookie-icon');
   const fortuneModal = document.getElementById('fortune-modal');
   const fortuneText = document.getElementById('fortune-text');
 
-  cookieIcons.forEach(icon => {
-    icon.addEventListener('click', () => {
-      const fortune = icon.getAttribute('data-fortune');
-      fortuneText.innerText = fortune;
-      fortuneModal.classList.add('show');
+  if (cookieIcons.length && fortuneModal && fortuneText) {
+    cookieIcons.forEach(icon => {
+      icon.addEventListener('click', () => {
+        const fortune = icon.getAttribute('data-fortune');
+        fortuneText.innerText = fortune;
+        fortuneModal.classList.add('show');
+      });
     });
-  });
 
-  window.closeFortune = function () {
-    fortuneModal.classList.remove('show');
-  };
-
+    window.closeFortune = function () {
+      fortuneModal.classList.remove('show');
+    };
+  }
 });
 </script>
 </html>
