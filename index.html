@@ -460,7 +460,8 @@
     
     .cookie-wrapper {
       position: relative;
-      display: inline-block;
+      display: block;      /* 기존 inline-block → block */
+      margin-bottom: 6px;  /* 버튼과 간격 */
     }
     
     .cookie-icon {
@@ -987,12 +988,6 @@
       <span>문의 : 포스코인재창조원 차연주 사원 · 메리 크리스마스 🎄</span>
     </footer>
   </div>
-  <div id="fortune-modal" class="fortune-modal">
-    <div class="fortune-box">
-      <p id="fortune-text"></p>
-      <button class="close-btn" onclick="closeFortune()">닫기</button>
-    </div>
-  </div>
 </body>
   
 <script>
@@ -1018,62 +1013,52 @@ document.addEventListener("DOMContentLoaded", function () {
       updateSlider();
     }
 
-    // 2초마다 자동 전환
     setInterval(nextSlide, 2000);
     updateSlider();
   }
 
-  // ===== 🍪 포춘쿠키 모달 =====
-  document.addEventListener("DOMContentLoaded", function () {
- 
-    const cookieIcons = document.querySelectorAll(".cookie-icon");
-    let currentPopup = null;
-  
-    cookieIcons.forEach(icon => {
-      icon.addEventListener("click", (e) => {
-  
-        // 기존 팝업 있으면 제거
-        if (currentPopup) {
-          currentPopup.remove();
-          currentPopup = null;
-        }
-  
-        const message = icon.getAttribute("data-fortune");
-  
-        // 팝업 DOM 생성
-        const popup = document.createElement("div");
-        popup.className = "fortune-popup";
-        popup.textContent = message;
-  
-        // wrapper 안에 붙이기
-        const wrapper = icon.parentElement;
-        wrapper.appendChild(popup);
-  
-        // 위치 계산 (쿠키 아래)
-        popup.classList.add("show");
-  
-        // 저장
-        currentPopup = popup;
-  
-        // 다시 누르면 닫히도록
-        popup.addEventListener("click", () => {
-          popup.remove();
-          currentPopup = null;
-        });
+  // ===== 🍪 포춘쿠키 팝업 =====
+  const cookieIcons = document.querySelectorAll(".cookie-icon");
+  let currentPopup = null;
+
+  cookieIcons.forEach(icon => {
+    icon.addEventListener("click", (e) => {
+      // 기존 팝업 제거
+      if (currentPopup) {
+        currentPopup.remove();
+        currentPopup = null;
+      }
+
+      const message = icon.getAttribute("data-fortune");
+
+      const popup = document.createElement("div");
+      popup.className = "fortune-popup";
+      popup.textContent = message;
+
+      const wrapper = icon.parentElement;
+      wrapper.appendChild(popup);
+
+      popup.classList.add("show");
+      currentPopup = popup;
+
+      // 팝업 자체 클릭하면 닫기
+      popup.addEventListener("click", () => {
+        popup.remove();
+        currentPopup = null;
       });
     });
-  
-    // 바깥 클릭 시 팝업 닫기
-    document.addEventListener("click", (e) => {
-      if (!e.target.classList.contains("cookie-icon") &&
-          !e.target.classList.contains("fortune-popup")) {
-        if (currentPopup) {
-          currentPopup.remove();
-          currentPopup = null;
-        }
-      }
-    });
-  
   });
+
+  // 바깥 영역 클릭 시 닫기
+  document.addEventListener("click", (e) => {
+    if (!e.target.classList.contains("cookie-icon") &&
+        !e.target.classList.contains("fortune-popup")) {
+      if (currentPopup) {
+        currentPopup.remove();
+        currentPopup = null;
+      }
+    }
+  });
+});
 </script>
 </html>
