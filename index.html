@@ -988,16 +988,36 @@
   });
 </script>
 <script>
-  document.querySelectorAll('.cookie-icon').forEach(icon => {
+document.addEventListener("DOMContentLoaded", function () {
+
+  // === 기존 슬라이드 코드 여기 있음 ===
+  const track = document.querySelector(".hero-slider-track");
+  const slides = document.querySelectorAll(".hero-slide");
+  const dots = document.querySelectorAll(".hero-dot");
+
+  if (track && slides.length > 0) {
+    // 슬라이더 동작 코드...
+  }
+
+  // ============================
+  // 🍪 포춘쿠키 클릭 모달 기능
+  // ============================
+  const cookieIcons = document.querySelectorAll('.cookie-icon');
+  const fortuneModal = document.getElementById('fortune-modal');
+  const fortuneText = document.getElementById('fortune-text');
+
+  cookieIcons.forEach(icon => {
     icon.addEventListener('click', () => {
       const fortune = icon.getAttribute('data-fortune');
-      document.getElementById('fortune-text').innerText = fortune;
-      document.getElementById('fortune-modal').classList.add('show');
+      fortuneText.innerText = fortune;
+      fortuneModal.classList.add('show');
     });
   });
 
-  function closeFortune() {
-    document.getElementById('fortune-modal').classList.remove('show');
-  }
+  window.closeFortune = function () {
+    fortuneModal.classList.remove('show');
+  };
+
+});
 </script>
 </html>
